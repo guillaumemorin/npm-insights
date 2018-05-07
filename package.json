@@ -1,30 +1,68 @@
 {
-  "name": "module-boilerplate",
-  "version": "1.0.0",
-  "description": "module boilerplate",
-  "main": "index.js",
-  "watch": {
-    "build": "{src,test}/*.js"
-  },
-  "scripts": {
-    "watch": "npm-watch",
-    "clean": "if [ -d ./dist ]; then rm -r ./dist; fi;mkdir ./dist;",
-    "build-js": "babel -d dist/ src/",
-    "build": "npm run clean; npm run build-js",
-    "lint": "eslint src/",
-    "test": "jest",
-    "coverage": "jest --coverage"
-  },
-  "author": "Guillaume Morin",
-  "license": "ISC",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.2.3",
-    "babel-preset-env": "^1.6.1",
-    "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-react-native": "^3.2.1",
-    "jest": "^22.4.3",
-    "npm-watch": "^0.3.0"
-  }
+    "name": "package-install-report",
+    "version": "1.0.0",
+    "description": "Get install number of your package in real time",
+    "bin": {
+        "package-install-report:init": "dist/init/index.js",
+        "package-install-report:log": "dist/log/index.js"
+    },
+    "watch": {
+        "build": "{src,test}/*.js"
+    },
+    "scripts": {
+        "flow": "flow",
+        "watch": "npm-watch",
+        "clean": "if [ -d ./dist ]; then rm -r ./dist; fi;mkdir ./dist;",
+        "build-js": "babel -d dist/ src/",
+        "build": "npm run clean; npm run build-js",
+        "lint": "eslint src/",
+        "test": "jest",
+        "coverage": "jest --coverage",
+        "precommit": "pretty-quick --staged",
+        "prepare": "npm run build",
+        "postinstall": "package-install-report:init"
+    },
+    "author": "Guillaume Morin",
+    "license": "ISC",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "babel-eslint": "^8.2.3",
+        "babel-jest": "^22.4.3",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-flow": "^6.23.0",
+        "babel-preset-react": "^6.24.1",
+        "eslint": "^4.19.1",
+        "eslint-plugin-react": "^7.7.0",
+        "eslint-plugin-react-native": "^3.2.1",
+        "flow-bin": "^0.72.0",
+        "husky": "^0.14.3",
+        "jest": "^22.4.3",
+        "npm-watch": "^0.3.0",
+        "prettier": "1.12.1",
+        "pretty-quick": "^1.4.1",
+        "react-test-renderer": "^16.3.2",
+        "regenerator-runtime": "^0.11.1"
+    },
+    "dependencies": {
+        "apollo-cache-inmemory": "^1.2.1",
+        "apollo-client": "^2.3.1",
+        "apollo-link-http": "^1.5.4",
+        "cli-color": "^1.2.0",
+        "colorful-console-log": "^1.0.1",
+        "graphql": "^0.13.2",
+        "graphql-tag": "^2.9.2",
+        "node-fetch": "^2.1.2",
+        "print-message": "^2.1.0",
+        "read-package-json": "^2.0.13"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/guillaumemorin/module-boilerplate.git"
+    },
+    "bugs": {
+        "url": "https://github.com/guillaumemorin/module-boilerplate/issues"
+    },
+    "homepage": "https://github.com/guillaumemorin/module-boilerplate#readme",
+    "keywords": []
 }

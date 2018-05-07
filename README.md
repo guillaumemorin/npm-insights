@@ -3,6 +3,7 @@
 </h1>
 <p align="center">
     <a href='https://semaphoreci.com/guillaumemorin/module-boilerplate'> <img src='https://semaphoreci.com/api/v1/guillaumemorin/module-boilerplate/branches/master/badge.svg' alt='Build Status'></a>
+    <a href='https://github.com/prettier/prettier'> <img src='https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square' alt='code style: prettier'></a>
 </p>
 
 ## 📦 Usage
