@@ -1,9 +1,13 @@
+/* eslint-disable no-console */
+
 import {ApolloClient} from 'apollo-client';
 import {InMemoryCache} from 'apollo-cache-inmemory';
 import {HttpLink} from 'apollo-link-http';
 import fetch from 'node-fetch';
 import {GRAPHCOOL, WEBAPP} from './config';
+import readJson from 'read-package-json';
 import print from 'print-message';
+import clc from 'cli-color';
 
 const {SCHEME, URI, TYPE, VERSION, KEY} = GRAPHCOOL;
 
@@ -29,3 +33,21 @@ export const getTrackingUri = targetPackageName => {
     const {SCHEME, URI, PORT} = WEBAPP;
     return `${SCHEME}://${URI}:${PORT}/${targetPackageName}`;
 };
+
+export const displayError = error =>
+    printMessage(['🤔 🤔 🤔', '', `👉 ${clc.bold.red(`${error}`)}`, '']);
+
+export const getPackageJson = path =>
+    new Promise((resolve, reject) =>
+        readJson(
+            path,
+            null,
+            false,
+            (err, json) =>
+                err
+                    ? reject(
+                          `There was an error reading the file with path:${path}`
+                      )
+                    : resolve(json)
+        )
+    );

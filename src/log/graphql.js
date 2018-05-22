@@ -9,8 +9,8 @@ const query = gql`
 `;
 
 const mutation = gql`
-    mutation createLog($packageId: ID!) {
-        createLog(packageId: $packageId) {
+    mutation createLog($packageId: ID!, $version: String, $target: String) {
+        createLog(packageId: $packageId, version: $version, target: $target) {
             id
         }
     }

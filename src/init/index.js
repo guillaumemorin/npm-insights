@@ -1,41 +1,28 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 
-import readJson from 'read-package-json';
 import path from 'path';
 import {query, mutation} from './graphql';
-import {setClient, printMessage, getTrackingUri} from '../helpers';
+import {
+    setClient,
+    printMessage,
+    getTrackingUri,
+    getPackageJson,
+    displayError
+} from '../helpers';
 import clc from 'cli-color';
 
 const client = setClient();
-
+const packageJsonPath = path.join(
+    path.dirname(__dirname),
+    '..',
+    'package.json'
+);
 const targetPackageJsonPath = path.join(
     path.dirname(process.argv[1]),
     '..',
     '..',
     'package.json'
 );
-
-const displayMessage = targetPackageName =>
-    readJson(
-        path.join(path.dirname(__dirname), '..', 'package.json'),
-        console.error,
-        false,
-        (err, data) => {
-            const {name, version} = data;
-            printMessage([
-                '✌️ ✌️ ✌️',
-                '',
-                `📦 ${clc.bold.red(`${name}@${version}`)}`,
-                '',
-                `👉 Here is the link to track real-time ${clc.bold(
-                    targetPackageName
-                )} installs`,
-                '',
-                `🔗 ${clc.underline.green(getTrackingUri(targetPackageName))}`
-            ]);
-        }
-    );
 
 const checkPackage = name =>
     new Promise((resolve, reject) => {
@@ -58,21 +45,32 @@ const createPackage = name => {
             variables: {name}
         })
         .then(() => displayMessage(name))
-        .catch(error => console.error(error));
+        .catch(displayError);
 };
 
-readJson(
-    targetPackageJsonPath,
-    console.error,
-    false,
-    (err, targetPackageJson) => {
-        if (err) {
-            console.error('There was an error reading package.json');
-            return;
-        }
-        const {name} = targetPackageJson;
+const displayMessage = targetPackageName =>
+    getPackageJson(packageJsonPath)
+        .then(json => {
+            const {name, version} = json;
+            printMessage([
+                '✌️ ✌️ ✌️',
+                '',
+                `📦 ${clc.bold.red(`${name}@${version}`)}`,
+                '',
+                `👉 Here is the link to track real-time ${clc.bold(
+                    targetPackageName
+                )} installs`,
+                '',
+                `🔗 ${clc.underline.green(getTrackingUri(targetPackageName))}`
+            ]);
+        })
+        .catch(displayError);
+
+getPackageJson(targetPackageJsonPath)
+    .then(json => {
+        const {name} = json;
         checkPackage(name)
             .then(count => (count ? displayMessage(name) : createPackage(name)))
-            .catch(error => console.error(error));
-    }
-);
+            .catch(displayError);
+    })
+    .catch(displayError);
