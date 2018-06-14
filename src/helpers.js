@@ -31,7 +31,7 @@ export const printMessage = message =>
 
 export const getTrackingUri = targetPackageName => {
     const {SCHEME, URI, PORT} = WEBAPP;
-    return `${SCHEME}://${URI}:${PORT}/${targetPackageName}`;
+    return `${SCHEME}://${URI}/${targetPackageName}`;
 };
 
 export const displayError = error =>

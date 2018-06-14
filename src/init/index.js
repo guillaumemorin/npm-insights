@@ -57,9 +57,9 @@ const displayMessage = targetPackageName =>
                 '',
                 `📦 ${clc.bold.red(`${name}@${version}`)}`,
                 '',
-                `👉 Here is the link to track real-time ${clc.bold(
+                `👉 Here is the link to visualize real-time ${clc.bold(
                     targetPackageName
-                )} installs`,
+                )} downloads`,
                 '',
                 `🔗 ${clc.underline.green(getTrackingUri(targetPackageName))}`
             ]);

@@ -8,8 +8,8 @@ const GRAPHCOOL = {
 
 const WEBAPP = {
     SCHEME: 'http',
-    URI: 'localhost',
-    PORT: 3000
+    URI: 'npm-insights.live',
+    PORT: ''
 };
 
 export {GRAPHCOOL, WEBAPP};
