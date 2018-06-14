@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "description": "Real time analytics of package downloads",
     "bin": {
-        "package-install-report:init": "dist/init/index.js",
-        "package-install-report:log": "dist/log/index.js"
+        "npm-insights:init": "dist/init/index.js",
+        "npm-insights:log": "dist/log/index.js"
     },
     "watch": {
         "build": "{src,test}/*.js"
@@ -20,7 +20,7 @@
         "coverage": "jest --coverage",
         "precommit": "pretty-quick --staged",
         "prepare": "npm run build",
-        "postinstall": "package-install-report:init"
+        "postinstall": "npm-insights:init"
     },
     "author": "Guillaume Morin",
     "license": "ISC",
@@ -65,5 +65,5 @@
         "url": "https://github.com/guillaumemorin/npm-insights/issues"
     },
     "homepage": "https://npm-insights.live",
-    "keywords": ["npm", "insights", "reports", "analytics", "real-time"]
+    "keywords": ["npm", "insights", "downloads", "real-time", "analytics"]
 }
