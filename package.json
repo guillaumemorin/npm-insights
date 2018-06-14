@@ -19,8 +19,7 @@
         "test": "jest",
         "coverage": "jest --coverage",
         "precommit": "pretty-quick --staged",
-        "prepare": "npm run build",
-        "postinstall": "npm-insights:init"
+        "prepare": "npm run build"
     },
     "author": "Guillaume Morin",
     "license": "ISC",
