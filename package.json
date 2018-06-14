@@ -2,10 +2,6 @@
     "name": "npm-insights",
     "version": "1.0.2",
     "description": "Real time analytics of package downloads",
-    "bin": {
-        "npm-insights:init": "dist/init/index.js",
-        "npm-insights:log": "dist/log/index.js"
-    },
     "watch": {
         "build": "{src,test}/*.js"
     },
