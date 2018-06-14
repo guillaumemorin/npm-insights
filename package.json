@@ -1,7 +1,7 @@
 {
-    "name": "package-install-report",
+    "name": "npm-insights",
     "version": "1.0.0",
-    "description": "Get install number of your package in real time",
+    "description": "Real time analytics of package downloads",
     "bin": {
         "package-install-report:init": "dist/init/index.js",
         "package-install-report:log": "dist/log/index.js"
@@ -59,11 +59,11 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/guillaumemorin/module-boilerplate.git"
+        "url": "git+https://github.com/guillaumemorin/npm-insights.git"
     },
     "bugs": {
-        "url": "https://github.com/guillaumemorin/module-boilerplate/issues"
+        "url": "https://github.com/guillaumemorin/npm-insights/issues"
     },
-    "homepage": "https://github.com/guillaumemorin/module-boilerplate#readme",
-    "keywords": []
+    "homepage": "https://npm-insights.live",
+    "keywords": ["npm", "insights", "reports", "analytics", "real-time"]
 }
