@@ -30,7 +30,7 @@ export const printMessage = message =>
     });
 
 export const getTrackingUri = targetPackageName => {
-    const {SCHEME, URI, PORT} = WEBAPP;
+    const {SCHEME, URI} = WEBAPP;
     return `${SCHEME}://${URI}/${targetPackageName}`;
 };
 
