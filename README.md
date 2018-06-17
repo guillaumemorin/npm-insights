@@ -36,7 +36,7 @@ Add a postinstall script to your package.json `"scripts"`
 
 ## Visualization
 
-That's it! Go to https://npm-insights.live/ [your_package_name] and you should now be able to visualize something like this:
+That's it! Go to http://npm-insights.live/ [your_package_name] and you should now be able to visualize something like this:
 
 ![landing](/docs/landing.png)
 
