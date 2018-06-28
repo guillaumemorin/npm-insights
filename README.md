@@ -35,9 +35,11 @@ Add a postinstall script to your package.json `"scripts"`
 }
 ```
 
+**Then bump the version of your package and publish new version to npm registry**
+
 ## Visualization
 
-That's it! Go to https://npm-insights.live/ [your_package_name] and you should now be able to visualize something like this:
+That's it! Go to https://npm-insights.live/ **[your_package_name]** (like **https://npm-insights.live/react-styled-toggle** for example) and you should now be able to visualize something like this:
 
 ![landing](/docs/landing.png)
 
