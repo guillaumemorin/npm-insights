@@ -2,7 +2,7 @@
 	<img src='/docs/logo.png' alt='logo' width=50>
 </p>
 <h1 align="center">
-	npm-insights
+	📦🔮📦 npm-insights 📦🔮📦
 </h1>
 <p align="center">
 	<a href="https://badge.fury.io/js/npm-insights"><img src="https://badge.fury.io/js/npm-insights.svg" alt="npm version" height="18"></a>
@@ -10,7 +10,7 @@
 	<a href='https://github.com/prettier/prettier'> <img src='https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square' alt='code style: prettier'></a>
 </p>
 
-npm-insights give you a more detailed and accurate view of your packages use.
+👉 npm-insights give you a more accurate view of your packages use.
 
 ## Installation
 
@@ -27,19 +27,16 @@ Add a postinstall script to your package.json `"scripts"`
 ```
 },
   "scripts": {
-	  "lint": "eslint src/",
-	  "test": "jest",
-	   ...
 	  "postinstall": "npm-insights:log"
   }
 }
 ```
 
-**Then bump the version of your package and publish new version to npm registry**
+## ⚠️ **Don't forget to bump the version of your package and publish the new version which include `npm-insights` to npm registry** ⚠️
 
 ## Visualization
 
-That's it! Go to https://npm-insights.live/ **[your_package_name]** (like **https://npm-insights.live/react-styled-toggle** for example) and you should now be able to visualize something like this:
+That's it! Go to https://npm-insight-app.now.sh/ **[your_package_name]** (like **https://npm-insight-app.now.sh/react-styled-toggle** for example) and you should now be able to visualize something like this:
 
 ![landing](/docs/landing.png)
 
