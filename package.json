@@ -3,7 +3,6 @@
     "version": "1.0.9",
     "description": "Real time analytics of package downloads",
     "bin": {
-        "npm-insights:init": "dist/init/index.js",
         "npm-insights:log": "dist/log/index.js"
     },
     "files": [
@@ -21,8 +20,7 @@
         "test": "jest",
         "coverage": "jest --coverage",
         "precommit": "pretty-quick --staged",
-        "prepare": "npm run build",
-        "postinstall": "npm-insights:init"
+        "prepare": "npm run build"
     },
     "author": "Guillaume Morin",
     "license": "ISC",
