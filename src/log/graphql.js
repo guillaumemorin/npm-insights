@@ -1,33 +1,27 @@
 import gql from 'graphql-tag';
 
-const query = gql`
-    query Package($name: String!) {
-        Package(name: $name) {
-            id
-        }
-    }
-`;
-
 const mutation = gql`
-    mutation createLog(
-        $packageId: ID!
-        $version: String
-        $target: String
-        $os: Json
-        $versions: Json
-        $time: Json
+  mutation createLog(
+    $name: String
+    $version: String
+    $targetName: String
+    $targetVersion: String
+    $os: Json
+    $versions: Json
+    $time: Json
+  ) {
+    createLog(
+      name: $name
+      version: $version
+      targetName: $targetName
+      targetVersion: $targetVersion
+      os: $os
+      versions: $versions
+      time: $time
     ) {
-        createLog(
-            packageId: $packageId
-            version: $version
-            target: $target
-            os: $os
-            versions: $versions
-            time: $time
-        ) {
-            id
-        }
+      id
     }
+  }
 `;
 
-export {query, mutation};
+export { mutation };
