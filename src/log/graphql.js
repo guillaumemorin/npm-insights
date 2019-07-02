@@ -1,7 +1,8 @@
 import gql from 'graphql-tag';
 
-const mutation = gql`
+const logMutation = gql`
   mutation createLog(
+    $packageId: ID!
     $name: String
     $version: String
     $targetName: String
@@ -11,6 +12,7 @@ const mutation = gql`
     $time: Json
   ) {
     createLog(
+      packageId: $packageId
       name: $name
       version: $version
       targetName: $targetName
@@ -24,4 +26,21 @@ const mutation = gql`
   }
 `;
 
-export { mutation };
+const packageQuery = gql`
+  query Package($name: String!) {
+    Package(name: $name) {
+      id
+    }
+  }
+`;
+
+const packageMutation = gql`
+  mutation createPackage($name: String!) {
+    createPackage(name: $name) {
+      id
+      name
+    }
+  }
+`;
+
+export { logMutation, packageMutation, packageQuery };

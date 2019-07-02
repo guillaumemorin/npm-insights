@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { setClient, displayError, getPackageJson } from '../helpers';
-import { mutation } from './graphql';
+import { logMutation, packageMutation, packageQuery } from './graphql';
 import si from 'systeminformation';
 import path from 'path';
 
@@ -31,14 +31,39 @@ const getInfos = () =>
       .catch(displayError);
   });
 
+const getPackage = name =>
+  new Promise((resolve, reject) => {
+    client
+      .query({
+        query: packageQuery,
+        variables: { name }
+      })
+      .then(result => resolve(result.data.Package))
+      .catch(error => reject(error));
+  });
+
+const createPackage = name =>
+  new Promise((resolve, reject) => {
+    client
+      .mutate({
+        mutation: packageMutation,
+        variables: { name }
+      })
+      .then(result => resolve(result.data.createPackage))
+      .catch(error => reject(error));
+  });
+
 const log = async (trackedPackageJson, targetPackageJson) => {
+  const { os, shell, versions, time } = await getInfos();
   const { name, version } = trackedPackageJson;
+  if (!name) return;
   const { name: targetName, version: targetVersion } = targetPackageJson;
-  const data = await getInfos();
-  const { os, shell, versions, time } = data;
+  const { id: packageId } =
+    (await getPackage(name)) || (await createPackage(name));
   client.mutate({
-    mutation,
+    mutation: logMutation,
     variables: {
+      packageId,
       name,
       version,
       targetName,
