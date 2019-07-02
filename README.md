@@ -10,7 +10,9 @@
 	<a href='https://github.com/prettier/prettier'> <img src='https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square' alt='code style: prettier'></a>
 </p>
 
-👉 npm-insights give you a more accurate view of your packages use.
+## Purpose
+
+👉 npm-insights will let you see more accurately how your packages are used by others
 
 ## Installation
 
@@ -27,12 +29,12 @@ Add a postinstall script to your package.json `"scripts"`
 ```
 },
   "scripts": {
-	  "postinstall": "npm-insights:log"
+	"postinstall": "npm-insights:log"
   }
 }
 ```
 
-## ⚠️ **Don't forget to bump the version of your package and publish the new version which include `npm-insights` to npm registry** ⚠️
+## ⚠️ **Don't forget to bump the version of your package and publish to npm registry the new version with `npm-insights`** ⚠️
 
 ## Visualization
 
