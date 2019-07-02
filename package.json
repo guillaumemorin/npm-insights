@@ -1,6 +1,6 @@
 {
   "name": "npm-insights",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "Real time analytics of package downloads",
   "bin": {
     "npm-insights:log": "dist/log/index.js"
