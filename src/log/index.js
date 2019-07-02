@@ -56,8 +56,8 @@ const createPackage = name =>
 const log = async (trackedPackageJson, targetPackageJson) => {
   const { os, shell, versions, time } = await getInfos();
   const { name, version } = trackedPackageJson;
-  if (!name) return;
   const { name: targetName, version: targetVersion } = targetPackageJson;
+  if (!name || name === targetName) return;
   const { id: packageId } =
     (await getPackage(name)) || (await createPackage(name));
   client.mutate({
