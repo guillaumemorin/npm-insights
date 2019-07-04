@@ -38,7 +38,7 @@ Add a postinstall script to your package.json `"scripts"`
 
 ## Visualization
 
-That's it! Go to https://npm-insight-app.now.sh/ **[your_package_name]** (like **https://npm-insight-app.now.sh/react-styled-toggle** for example) and you should now be able to visualize something like this:
+That's it! Go to https://npm-insights-app.now.sh/ **[your_package_name]** (like **https://npm-insights-app.now.sh/react-styled-toggle** for example) and you should now be able to visualize something like this:
 
 ![landing](/docs/landing.png)
 
