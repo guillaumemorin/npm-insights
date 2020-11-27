@@ -54,7 +54,7 @@
     "node-fetch": "^2.1.2",
     "print-message": "^2.1.0",
     "read-package-json": "^2.0.13",
-    "systeminformation": "^3.41.3"
+    "systeminformation": "^4.30.5"
   },
   "repository": {
     "type": "git",
